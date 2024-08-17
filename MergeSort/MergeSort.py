@@ -33,9 +33,3 @@ def merge_sort(array):
             array[k] = right_array[j]
             j += 1
             k += 1
-        
-
-array_Test = [8,3,6,1]
-
-merge_sort(array_Test)
-print(array_Test)

@@ -1,4 +1,5 @@
 def merge_sort(array):
+
     if len(array) > 1:
         left_array = array[0:len(array)//2]
         right_array = array[len(array)//2:]
@@ -33,3 +34,5 @@ def merge_sort(array):
             array[k] = right_array[j]
             j += 1
             k += 1
+
+        return array

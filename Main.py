@@ -1,21 +1,69 @@
-import time
+import json
+import os
 from DATOS import carga_Datos
 from HeapSort import HeapSort
 from QuickSort import QuickSort
 from MergeSort import MergeSort
 
-datos100 = "100datos.json"
-datos1000 = "1000datos.json"
-datos10000 = "10000datos.json"
+#cargar el archivo con los numeros de prueba
+test_Data = "test_Data.json"
+array = carga_Datos.load_random_numbers(test_Data)
 
-array = carga_Datos.load_random_numbers(datos100)
+#Definir una ruta absoluta específica para guardar los archivo JSON con los resultados
+result = "repo/SortAlgorithms/Results"
+
+# Verificar si el directorio existe y si no créarlo si es necesario
+directorio = os.path.dirname(result)
+if not os.path.exists(result):
+    os.makedirs(result)
+
 
 #LLAMADO AL MERGE-SORT
+mtest_100 = MergeSort.merge_sort(array["cien"].copy())
+mtest_1000 = MergeSort.merge_sort(array["mil"].copy())
+mtest_10000 = MergeSort.merge_sort(array["diezmil"].copy())
 
-inicio = time.perf_counter_ns() #Conteo en nanosegundos para comenzar a contar el tiempo de duracion del algoritmo
-MergeSort.merge_sort(array)
-fin = time.perf_counter_ns()
-tiempoFinal = (fin - inicio)/pow(10,6) #Conversion de nanosegundos a milisegundos
-print("Tiempo total para ordenar los datos mediante el metodo Merge Sort: ", tiempoFinal , "ms\n")
-print(array)
+#almacenar en un diccionario los arrays una vez organizados
+Merge_drganized_data = {
+    "n_cien": mtest_100,
+    "n_mil": mtest_1000,
+    "n_diezmil": mtest_10000
+}
 
+#almacenar el diccionario anterior en un json
+with open(os.path.join(result, f"Merge_organized_data.json"), "w") as mfile:
+    json.dump(Merge_drganized_data, mfile)
+
+
+#Llamado QuickSort
+qtest_100 = QuickSort.quickSort(array["cien"].copy())
+qtest_1000 = QuickSort.quickSort(array["mil"].copy())
+qtest_10000 = QuickSort.quickSort(array["diezmil"].copy())
+
+#almacenar en un diccionario los arrays una vez organizados
+quick_organized_Data = {
+    "n_cien": qtest_100,
+    "n_mil": qtest_1000,
+    "n_diezmil": qtest_10000
+}
+
+#almacenar el diccionario anterior en un json
+with open(os.path.join(result, f"QuickSort_organized_data.json"), "w") as qfile:
+    json.dump(quick_organized_Data, qfile)
+
+
+#Llamado HeapSort
+htest_100 = HeapSort.heap_sort(array["cien"].copy())
+htest_1000 = HeapSort.heap_sort(array["mil"].copy())
+htest_10000 = HeapSort.heap_sort(array["diezmil"].copy())
+
+#almacenar en un diccionario los arrays una vez organizados
+heap_organized_Data = {
+    "n_cien": htest_100,
+    "n_mil": htest_1000,
+    "n_diezmil": htest_10000
+}
+
+#almacenar el diccionario anterior en un json
+with open(os.path.join(result, f"HeapSort_organized_data.json"), "w") as hfile:
+    json.dump(heap_organized_Data, hfile)

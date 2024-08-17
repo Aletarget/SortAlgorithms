@@ -12,8 +12,8 @@ def merge_sort(array):
         k = 0
         while i < len(left_array) and j < len(right_array): #Si alguno deja de ser verdad significa que almenos uno de los arreglos ya se asigno al arreglo original
             """
-            Comparar si el primer elemento izquierdo de cada array es mayor o menor, si es menor, se aumenta el contador de ese arreglo y 
-            se volveria a realizar la comparacion aumentando en 1 unidad el valor de q ya que es la posicion de memoria que se va asignando
+            Comparar si el primer elemento izquierdo de cada array es mayor o menor, si es menor, se aumenta el contador de ese arreglo izquierdo y sí es mayor se aumenta el
+            contador del arreglo derecho, y se volveria a realizar la comparacion aumentando en 1 unidad el valor de K ya que es la posicion del arreglo que se va asignando
             """
             if left_array[i] < right_array[j]:
                 array[k] = left_array[i]

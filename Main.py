@@ -36,9 +36,9 @@ with open(os.path.join(result, f"Merge_organized_data.json"), "w") as mfile:
 
 
 #Llamado QuickSort
-qtest_100 = QuickSort.quickSort(array["cien"].copy())
-qtest_1000 = QuickSort.quickSort(array["mil"].copy())
-qtest_10000 = QuickSort.quickSort(array["diezmil"].copy())
+qtest_100 = QuickSort.quickSort(array["cien"].copy(),0,len(array["cien"].copy())-1)
+qtest_1000 = QuickSort.quickSort(array["mil"].copy(),0,len(array["mil"].copy())-1)
+qtest_10000 = QuickSort.quickSort(array["diezmil"].copy(),0,len(array["diezmil"].copy())-1)
 
 #almacenar en un diccionario los arrays una vez organizados
 quick_organized_Data = {

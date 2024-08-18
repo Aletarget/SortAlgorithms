@@ -20,8 +20,11 @@ if not os.path.exists(result):
 
 #LLAMADO AL MERGE-SORT
 mtest_100 = MergeSort.merge_sort(array["cien"].copy())
-mtest_1000 = MergeSort.merge_sort(array["mil"].copy())
-mtest_10000 = MergeSort.merge_sort(array["diezmil"].copy())
+print(f"Dataset 100\nNumero de pasos MergeSort: {mtest_100[1]}\n Numero de ciclos MergeSort: {mtest_100[2]}\n")
+#mtest_1000 = MergeSort.merge_sort(array["mil"].copy())
+print(f"Dataset 100\nNumero de pasos MergeSort: {mtest_1000[1]}\n Numero de ciclos MergeSort: {mtest_1000[2]}\n")
+#mtest_10000 = MergeSort.merge_sort(array["diezmil"].copy())
+print(f"Dataset 100\nNumero de pasos MergeSort: {mtest_10000[1]}\n Numero de ciclos QuickSort: {mtest_10000[2]}\n")
 
 #almacenar en un diccionario los arrays una vez organizados
 Merge_drganized_data = {
@@ -37,8 +40,11 @@ with open(os.path.join(result, f"Merge_organized_data.json"), "w") as mfile:
 
 #Llamado QuickSort
 qtest_100 = QuickSort.quickSort(array["cien"].copy(),0,len(array["cien"].copy())-1)
+print(f"Dataset 100\nNumero de pasos QuickSort: {qtest_100[2]}\n Numero de ciclos QuickSort: {qtest_100[1]}\n")
 qtest_1000 = QuickSort.quickSort(array["mil"].copy(),0,len(array["mil"].copy())-1)
+print(f"Dataset 1000\nNumero de pasos QuickSort: {qtest_1000[2]}\n Numero de ciclos QuickSort: {qtest_1000[1]}\n")
 qtest_10000 = QuickSort.quickSort(array["diezmil"].copy(),0,len(array["diezmil"].copy())-1)
+print(f"Dataset 10000\nNumero de pasos QuickSort: {qtest_10000[2]}\n Numero de ciclos QuickSort: {qtest_10000[1]}\n")
 
 #almacenar en un diccionario los arrays una vez organizados
 quick_organized_Data = {
@@ -50,7 +56,6 @@ quick_organized_Data = {
 #almacenar el diccionario anterior en un json
 with open(os.path.join(result, f"QuickSort_organized_data.json"), "w") as qfile:
     json.dump(quick_organized_Data, qfile)
-
 
 #Llamado HeapSort
 htest_100 = HeapSort.heap_sort(array["cien"].copy())

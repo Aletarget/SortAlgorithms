@@ -23,7 +23,7 @@ print(f"Dataset 100\nNumero de pasos MergeSort: {mtest_100[1]}\n Numero de ciclo
 mtest_1000 = MergeSort.merge_sort(array["mil"].copy())
 print(f"Dataset 1000\nNumero de pasos MergeSort: {mtest_1000[1]}\n Numero de ciclos MergeSort: {mtest_1000[2]}\n")
 mtest_10000 = MergeSort.merge_sort(array["diezmil"].copy())
-print(f"Dataset 1000\nNumero de pasos MergeSort: {mtest_10000[1]}\n Numero de ciclos MergeSort: {mtest_10000[2]}\n")
+print(f"Dataset 10000\nNumero de pasos MergeSort: {mtest_10000[1]}\n Numero de ciclos Mergesort: {mtest_10000[2]}\n")
 
 #almacenar en un diccionario los arrays una vez organizados
 Merge_drganized_data = {

@@ -1,16 +1,16 @@
 def merge_sort(array, cycle = 0, steps = 0):
     steps += 1
-    cycle += 1
-    print(f"ciclos {cycle}")
+
     if len(array) <= 1:
         return array, steps, cycle
-
+    
+    cycle += 1
     left_array = array[0:len(array)//2]
     right_array = array[len(array)//2:]
     steps += 2
     #Uso de recursividad para la division de los arreglos que ya se tienen.
-    left_array, leftsteps, leftcycle = merge_sort(left_array, cycle, steps)
-    right_array, rightsteps, rightcycle = merge_sort(right_array, cycle, steps)
+    left_array, steps, cycle = merge_sort(left_array, cycle, steps)
+    right_array, steps, cycle = merge_sort(right_array, cycle, steps)
 
     i = 0 # Contador del array izquierdo
     j = 0 # Contador del array derecho

@@ -17,14 +17,13 @@ directorio = os.path.dirname(result)
 if not os.path.exists(result):
     os.makedirs(result)
 
-
 #LLAMADO AL MERGE-SORT
 mtest_100 = MergeSort.merge_sort(array["cien"].copy())
 print(f"Dataset 100\nNumero de pasos MergeSort: {mtest_100[1]}\n Numero de ciclos MergeSort: {mtest_100[2]}\n")
-#mtest_1000 = MergeSort.merge_sort(array["mil"].copy())
-print(f"Dataset 100\nNumero de pasos MergeSort: {mtest_1000[1]}\n Numero de ciclos MergeSort: {mtest_1000[2]}\n")
-#mtest_10000 = MergeSort.merge_sort(array["diezmil"].copy())
-print(f"Dataset 100\nNumero de pasos MergeSort: {mtest_10000[1]}\n Numero de ciclos QuickSort: {mtest_10000[2]}\n")
+mtest_1000 = MergeSort.merge_sort(array["mil"].copy())
+print(f"Dataset 1000\nNumero de pasos MergeSort: {mtest_1000[1]}\n Numero de ciclos MergeSort: {mtest_1000[2]}\n")
+mtest_10000 = MergeSort.merge_sort(array["diezmil"].copy())
+print(f"Dataset 1000\nNumero de pasos MergeSort: {mtest_10000[1]}\n Numero de ciclos QuickSort: {mtest_10000[2]}\n")
 
 #almacenar en un diccionario los arrays una vez organizados
 Merge_drganized_data = {
@@ -59,8 +58,11 @@ with open(os.path.join(result, f"QuickSort_organized_data.json"), "w") as qfile:
 
 #Llamado HeapSort
 htest_100 = HeapSort.heap_sort(array["cien"].copy())
+print(f"Dataset 100\nNumero de pasos HeapSort: {htest_100[1]}\n Numero de ciclos HeapSort: {htest_100[2]}\n")
 htest_1000 = HeapSort.heap_sort(array["mil"].copy())
+print(f"Dataset 1000\nNumero de pasos HeapSort: {htest_1000[1]}\n Numero de ciclos HeapSort: {htest_1000[2]}\n")
 htest_10000 = HeapSort.heap_sort(array["diezmil"].copy())
+print(f"Dataset 10000\nNumero de pasos HeapSort: {htest_10000[1]}\n Numero de ciclos HeapSort: {htest_10000[2]}\n")
 
 #almacenar en un diccionario los arrays una vez organizados
 heap_organized_Data = {
